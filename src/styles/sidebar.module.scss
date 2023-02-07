@@ -1,0 +1,32 @@
+@import "./variables";
+
+.sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 50px;
+    box-shadow: $shadow;
+    background: $black;
+    z-index: 100;
+}
+
+.menu {
+    color: $white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    padding: 10px;
+    cursor: pointer;
+    transition: 0.6s;
+
+    &:hover {
+        color: $main;
+    }
+
+    svg {
+        width: 25px;
+        height: 25px;
+    }
+}
