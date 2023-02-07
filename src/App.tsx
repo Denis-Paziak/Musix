@@ -1,12 +1,12 @@
-import Sidebar from "./components/Sidebar/Sidebar"
+import Layout from "./components/Layout/Layout";
 import "./styles/style.scss";
 
-function App() {
+function App(): JSX.Element {
 
   return (
-    <div className="App">
-      <Sidebar />
-    </div>
+    <Layout>
+      <h1>Hello world!</h1>
+    </Layout>
   )
 }
 
