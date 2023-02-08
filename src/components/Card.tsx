@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom"
-import style from "../styles/playlist.module.scss"
+import style from "../styles/card.module.scss"
 
 interface Iprops {
     id: number,
@@ -9,9 +9,9 @@ interface Iprops {
 }
 
 
-const Playlist = ({ id, name, image }: Iprops): JSX.Element => {
+const Card = ({ id, name, image }: Iprops): JSX.Element => {
     return (
-        <Link to={`playlist/${id}`} className={style.playlist}>
+        <Link to={`playlist/${id}`} className={style.card}>
             <div className={style.img}>
                 <img src={image} alt="none" />
             </div>
@@ -22,4 +22,4 @@ const Playlist = ({ id, name, image }: Iprops): JSX.Element => {
     )
 }
 
-export default Playlist
+export default Card

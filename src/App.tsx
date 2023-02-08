@@ -2,28 +2,16 @@ import Layout from "./components/Layout/Layout";
 import Main from "./pages/Main";
 import "./styles/style.scss";
 
-import {
-  createBrowserRouter,
-  RouterProvider,
-} from "react-router-dom";
-import PlaylistPage from "./pages/PlaylistPage";
+import { Route } from "react-router-dom";
+import { Outlet } from "react-router-dom";
 
-const router = createBrowserRouter([
-  {
-    path: "/",
-    element: <Main />,
-  },
-  {
-    path: "/playlist/:playlistId",
-    element: <PlaylistPage />,
-  },
-]);
+
 
 function App(): JSX.Element {
 
   return (
     <Layout>
-      <RouterProvider router={router} />
+      <Outlet />
     </Layout>
   )
 }

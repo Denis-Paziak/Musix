@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react"
 import Shelf from "../components/Shelf/Shelf"
 
-import playlist from "../database/playlist.js"
+import playlist from "../database/user_playlistsDB.js"
 
 
 const Main = (): JSX.Element => {
@@ -19,8 +19,6 @@ const Main = (): JSX.Element => {
 
     return (
         <>
-            <Shelf title={"Recommended Playlists"} playlist={RecommendedPlaylist} />
-            <Shelf title={"Recommended Playlists"} playlist={RecommendedPlaylist} />
             <Shelf title={"Recommended Playlists"} playlist={RecommendedPlaylist} />
         </>
     )
