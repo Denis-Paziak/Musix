@@ -1,0 +1,21 @@
+@import "./variables";
+
+.header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 50px;
+    padding: 0px 25px;
+    background: $black;
+}
+
+.logo {
+    h2 {
+        text-transform: uppercase;
+        font-weight: bold;
+    }
+
+    span {
+        color: $main;
+    }
+}

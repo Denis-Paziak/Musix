@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap');
 @import "./variables";
 
 * {
@@ -10,6 +11,8 @@ body {
     background: $bg;
     color: $white;
     padding-left: 50px;
+
+    font-family: "Montserrat", sans-serif;
 }
 
 a {
@@ -21,4 +24,6 @@ button {
     outline: none;
     border: none;
     background: transparent;
+    cursor: pointer;
+    color: $white;
 }
