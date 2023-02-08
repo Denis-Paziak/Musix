@@ -1,6 +1,6 @@
 import style from "../../styles/auth.module.scss";
 
-const Auth = () => {
+const Auth = (): JSX.Element => {
     return (
         <div className={style.auth}>
             <a href="/">
