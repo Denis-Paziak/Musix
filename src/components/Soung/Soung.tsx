@@ -22,6 +22,7 @@ const Soung = ({ data }: any): JSX.Element => {
                     {soung.artist_id}
                 </div>
             </div>
+
             <div className={style.tools}>
                 <div className={style.add}>
                     <RiAddFill />
