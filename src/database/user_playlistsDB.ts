@@ -1,7 +1,7 @@
 const user_playlistsDB: any = [
     {
         id: "0",
-        name: "Alyona",
+        name: "My",
         image: "https://www.pictureframesexpress.co.uk/blog/wp-content/uploads/2020/05/7-Tips-to-Finding-Art-Inspiration-Header-1024x649.jpg",
         rating: 13
     },

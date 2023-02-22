@@ -1,0 +1,59 @@
+@import "./variables";
+
+.soung {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+    width: 40%;
+}
+
+.play {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 30px;
+    height: 30px;
+    background: $white;
+    border-radius: 50%;
+    color: $black;
+    transition: 0.6s;
+    cursor: pointer;
+
+    &:hover {
+        background: $main;
+        color: $white;
+    }
+}
+
+
+.text {
+    margin-left: 15px;
+
+    .name {
+        font-weight: bold;
+    }
+
+    .artist {
+        color: $gray;
+    }
+}
+
+
+.tools {
+    display: flex;
+    margin-left: auto;
+    font-size: 20px;
+
+
+    .add,
+    .like {
+        margin-left: 10px;
+        transition: 0.6s;
+        cursor: pointer;
+
+        &:hover {
+            color: $main;
+        }
+    }
+
+}
