@@ -1,19 +1,46 @@
 const soungsDB: any = [
     {
         id: 1,
-        artist_id: "1",
-        name: "New soung",
-        image: "https://yt3.googleusercontent.com/rkatiUgh1CG2iCcAMX8XhQDSQybeMqPI-AwvQkk3vACoyNKmUczPFDnPdmZxdDBeo1Be3CfJDQ=s900-c-k-c0x00ffffff-no-rj",
-        audio: "/okean-elzi_-_trimay.mp3",
+        artist_id: "2",
+        artist: "Kavabanga Depo Kolibri",
+        name: "Серед Людей",
+        audio: "/Kavabanga Depo Kolibri - Серед Людей.mp3",
         year: "",
         genre: ""
     },
     {
-        id: 23,
+        id: 2,
         artist_id: "2",
-        name: "to",
-        image: "https://yt3.googleusercontent.com/rkatiUgh1CG2iCcAMX8XhQDSQybeMqPI-AwvQkk3vACoyNKmUczPFDnPdmZxdDBeo1Be3CfJDQ=s900-c-k-c0x00ffffff-no-rj",
-        audio: "",
+        artist: "100лиця",
+        name: "Привіт",
+        audio: "/100licya_-_privit_busic.net.mp3",
+        year: "",
+        genre: ""
+    },
+    {
+        id: 3,
+        artist_id: "2",
+        artist: "Izzamuzzic and 2pac",
+        name: "Black Cotton",
+        audio: "/Izzamuzzic and 2pac - Black Cotton (Izzamuzzic Remix).mp3",
+        year: "",
+        genre: ""
+    },
+    {
+        id: 4,
+        artist_id: "2",
+        artist: "Haarper",
+        name: "Eeny Meeny Miney Mo",
+        audio: "/Haarper-eeny-meeny-miney-mo.mp3",
+        year: "",
+        genre: ""
+    },
+    {
+        id: 5,
+        artist_id: "2",
+        artist: "Haarper",
+        name: "EYE OF THE STORM",
+        audio: "/HAARPER_BAKER_YA_MAKER_-_EYE_OF_THE_STORM.mp3",
         year: "",
         genre: ""
     },

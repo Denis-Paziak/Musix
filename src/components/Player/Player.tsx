@@ -1,36 +1,117 @@
 import style from "../../styles/player.module.scss"
-import { RiArrowDropLeftLine, RiArrowDropRightLine, RiPlayCircleFill, RiAddFill, RiHeartFill } from "react-icons/ri"
+import { RiArrowDropLeftLine, RiArrowDropRightLine, RiPlayCircleFill, RiPauseCircleFill, RiAddFill, RiHeartFill } from "react-icons/ri"
+import { useEffect, useRef, useState } from "react"
 
-const Player = (): JSX.Element => {
+const Player = ({ soungs }: any): JSX.Element => {
+    const [soung, setSoung] = useState(new Audio(""));
+    const [soungNumber, setSoungNumber] = useState(0);
+
+    const [isPlaying, setPlayingStatus] = useState(false);
+    const progressBar = useRef(document.createElement("div"));
+
+    useEffect(() => {
+        changeSoung();
+    }, [soungs, soungNumber]);
+
+
+    useEffect(() => {
+        if (soungNumber != 0) {
+            play();
+        }
+    }, [soung]);
+
+    const changeSoung = () => {
+        soung.pause();
+        setPlayingStatus(false);
+        if (soungs.length > 0) {
+            setSoung(new Audio(soungs[soungNumber].audio));
+        }
+    }
+
+    const soungProgress = () => {
+        const progressInterval = setInterval(() => {
+            let progressProcent = (soung.currentTime / soung.duration) * 100;
+            progressBar.current.style.width = progressProcent + "%";
+
+            if (soung.currentTime == soung.duration) {
+                next();
+            }
+
+            if (soung.paused) {
+                clearInterval(progressInterval);
+            }
+        }, 100);
+    }
+
+    const handler = () => {
+        if (!isPlaying) {
+            play();
+        } else {
+            pause();
+        }
+    }
+
+
+    const play = () => {
+        soung.play();
+        setPlayingStatus(true);
+        soungProgress();
+    }
+
+    const pause = () => {
+        soung.pause();
+        setPlayingStatus(false);
+    }
+
+    const next = () => {
+        let num = soungNumber + 1;
+        if (num >= soungs.length) {
+            num = 0;
+        }
+        setSoungNumber(num);
+    }
+
+    const prew = () => {
+        let num = soungNumber - 1;
+        if (num < 0) {
+            num = soungs.length - 1;
+        }
+        setSoungNumber(num);
+    }
+
     return (
         <div className={style.player}>
-            <div className="text">
-                <div className={style.name}>
-                    Name
+            <div className={style.row}>
+                <div className={style.controls}>
+                    <div className={style.prew} onClick={prew}><RiArrowDropLeftLine /></div>
+
+                    {!isPlaying && <div className={style.play} onClick={handler}><RiPlayCircleFill /></div>}
+                    {isPlaying && <div className={style.play} onClick={handler}><RiPauseCircleFill /></div>}
+
+                    <div className={style.next} onClick={next}><RiArrowDropRightLine /></div>
                 </div>
-                <div className={style.artist}>
-                    Artist
+
+                <div className={style.text}>
+                    <div className={style.name}>
+                        {soungs[soungNumber].name}
+                    </div>
+                    <div className={style.artist}>
+                        {soungs[soungNumber].artist}
+                    </div>
+                </div>
+
+                <div className={style.tools}>
+                    <div className={style.add}>
+                        <RiAddFill />
+                    </div>
+                    <div className={style.like}>
+                        <RiHeartFill />
+                    </div>
                 </div>
             </div>
-
-            <div className={style.controls}>
-                <div className={style.prew}><RiArrowDropLeftLine /></div>
-                <div className={style.play}><RiPlayCircleFill /></div>
-                <div className={style.next}><RiArrowDropRightLine /></div>
-            </div>
-
-            <div className={style.tools}>
-                <div className={style.add}>
-                    <RiAddFill />
-                </div>
-                <div className={style.like}>
-                    <RiHeartFill />
-                </div>
-            </div>
-
 
             <div className={style.progress}>
-                <div className={style.line}></div>
+                <div className={style.line} ref={progressBar}></div>
             </div>
         </div>
     )

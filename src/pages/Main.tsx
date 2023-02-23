@@ -19,7 +19,7 @@ const Main = (): JSX.Element => {
 
     return (
         <>
-            <Shelf title={"Recommended Playlists"} playlist={RecommendedPlaylist} />
+            <Shelf title={"Random Playlists"} playlist={RecommendedPlaylist} />
         </>
     )
 }

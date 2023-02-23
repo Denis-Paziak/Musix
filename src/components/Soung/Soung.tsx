@@ -1,11 +1,12 @@
 import style from "../../styles/soung.module.scss";
-import { RiPlayFill, RiAddFill, RiHeartFill } from "react-icons/ri";
+import { RiPlayFill, RiAddFill, RiHeartFill, RiPauseCircleFill } from "react-icons/ri";
+import { useEffect, useState } from "react";
 
 interface Isoung {
     id: string,
     name: string,
     audio: string,
-    artist_id: string
+    artist: string
 }
 
 const Soung = ({ data }: any): JSX.Element => {
@@ -13,13 +14,15 @@ const Soung = ({ data }: any): JSX.Element => {
 
     return (
         <div className={style.soung}>
-            <div className={style.play}><RiPlayFill /></div>
+            <div className={style.play}>
+                <RiPlayFill />
+            </div>
             <div className={style.text}>
                 <div className={style.name}>
                     {soung.name}
                 </div>
                 <div className={style.artist}>
-                    {soung.artist_id}
+                    {soung.artist}
                 </div>
             </div>
 
