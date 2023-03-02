@@ -8,6 +8,8 @@ interface Iprops {
 }
 
 const Shelf = ({ title, playlist }: Iprops): JSX.Element => {
+
+
     return (
         <section className={style.shelf}>
             <Title title={title} />

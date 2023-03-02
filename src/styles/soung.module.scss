@@ -5,6 +5,8 @@
     align-items: center;
     margin-bottom: 10px;
     width: 40%;
+    opacity: 0;
+    animation: show 0.8s forwards;
 }
 
 .play {
@@ -44,7 +46,6 @@
     margin-left: auto;
     font-size: 20px;
 
-
     .add,
     .like {
         margin-left: 10px;
@@ -56,4 +57,17 @@
         }
     }
 
+}
+
+
+@keyframes show {
+    0% {
+        transform: translateY(100px);
+        opacity: 0;
+    }
+
+    100% {
+        transform: translateY(0);
+        opacity: 1;
+    }
 }

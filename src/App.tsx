@@ -11,25 +11,24 @@ const service = new Service();
 
 function App(): JSX.Element {
   const [soungs, setSoungs]: any[] = useState([]);
-  const [playSoungId, setPlaySoungId]: any = useState(0);
+  const [playPlaylistId, setPlayPlaylistId]: any = useState(null);
 
   useEffect(() => {
     const getSoungs = async () => {
-      const data = await service.getPlaylistSoungs("5");
-      setSoungs(data);
+      if (playPlaylistId != null) {
+        const data = await service.getPlaylistSoungs(playPlaylistId);
+        setSoungs(data);
+      }
     }
     getSoungs();
 
-  }, []);
+  }, [playPlaylistId]);
 
-  useEffect(() => {
-    console.log(playSoungId);
-  }, [playSoungId]);
 
   return (
     <Layout>
-      <Outlet />
-      {soungs.length > 0 && <Player soungs={soungs} setPlaySoungId={setPlaySoungId} />}
+      <Outlet context={[setPlayPlaylistId, playPlaylistId]} />
+      {soungs.length > 0 && <Player soungs={soungs} />}
     </Layout>
   )
 }

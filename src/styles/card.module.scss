@@ -1,9 +1,11 @@
 @import "./variables";
 
 .card {
+    position: relative;
     width: 24%;
 
     .img {
+        position: relative;
         width: 100%;
         height: 200px;
         background: $white;
@@ -36,5 +38,12 @@
                 object-fit: cover;
             }
         }
+
+        .playPlaylist {
+            opacity: 1;
+            bottom: 10%;
+        }
     }
+
+
 }

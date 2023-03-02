@@ -3,29 +3,31 @@ import { RiArrowDropLeftLine, RiArrowDropRightLine, RiPlayCircleFill, RiPauseCir
 import { useEffect, useRef, useState } from "react"
 
 const Player = ({ soungs }: any): JSX.Element => {
-    const [soung, setSoung] = useState(new Audio(""));
+    const [isPlaying, setPlayingStatus] = useState(false);
+
+    const [soung, setSoung] = useState(new Audio());
     const [soungNumber, setSoungNumber] = useState(0);
 
-    const [isPlaying, setPlayingStatus] = useState(false);
     const progressBar = useRef(document.createElement("div"));
 
-    useEffect(() => {
-        changeSoung();
-    }, [soungs, soungNumber]);
-
 
     useEffect(() => {
-        if (soungNumber != 0) {
-            play();
-        }
+        changeSoung(0);
+    }, [soungs]);
+
+    useEffect(() => {
+        play();
     }, [soung]);
 
-    const changeSoung = () => {
-        soung.pause();
-        setPlayingStatus(false);
+    const changeSoung = (num: number) => {
+        pause();
+
         if (soungs.length > 0) {
-            setSoung(new Audio(soungs[soungNumber].audio));
+            let newAudio = new Audio(soungs[num].audio);
+            setSoung(newAudio);
         }
+
+        setSoungNumber(num);
     }
 
     const soungProgress = () => {
@@ -51,7 +53,6 @@ const Player = ({ soungs }: any): JSX.Element => {
         }
     }
 
-
     const play = () => {
         soung.play();
         setPlayingStatus(true);
@@ -68,7 +69,7 @@ const Player = ({ soungs }: any): JSX.Element => {
         if (num >= soungs.length) {
             num = 0;
         }
-        setSoungNumber(num);
+        changeSoung(num);
     }
 
     const prew = () => {
@@ -76,7 +77,7 @@ const Player = ({ soungs }: any): JSX.Element => {
         if (num < 0) {
             num = soungs.length - 1;
         }
-        setSoungNumber(num);
+        changeSoung(num);
     }
 
     return (

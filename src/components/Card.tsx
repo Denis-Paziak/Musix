@@ -10,6 +10,9 @@ interface Iprops {
 
 
 const Card = ({ id, name, image }: Iprops): JSX.Element => {
+
+
+
     return (
         <Link to={`playlist/${id}`} className={style.card}>
             <div className={style.img}>
